@@ -1,24 +1,19 @@
-# Thoroughbred Racing Syndicate Website
-Static HTML/CSS/JS. No build step: open `index.html` in a browser.
+# Racing Syndicate Website
+Static HTML/CSS/JS, no build step. Open `index.html` in a browser.
 
-## 1. Add photography (required)
-No photos are bundled. Add licensed images (e.g. from Unsplash) to `assets/images/` with these names (JPG, ~1920px wide for heroes, ~1200px for horses, compressed):
-`hero-gallop.jpg`, `about-hero.jpg`, `racecourse-atmosphere.jpg`, `horse-portrait.jpg`, `horse-stable.jpg`, `horse-motion.jpg`, `horse-jockey.jpg`.
-Until added, sections show a navy placeholder. Update the `alt` text to match your photos.
+## Structure
+- `index.html` holds all pages as views: Home, About, Contact, each with 3 demo designs (`#home`, `#home-2`, `#home-3`, `#about`, `#about-2`, `#about-3`, `#contact`, `#contact-2`, `#contact-3`).
+- `css/style.css` styles and colour variables (`:root`). `css/images.css` maps the photo classes `.p1 .p2 .p3` to files in `assets/images/`.
+- `js/main.js` has menu, header hide/show on scroll, reveal animations, hash routing and form validation.
 
-## 2. Contact form
-Edit the top of `js/contact.js`:
-- **FormSubmit:** set `OWNER_EMAIL`. The first submission triggers an activation email from FormSubmit to that address; confirm it once.
-- **Other service (Formspree etc.):** set `FORM_ENDPOINT`.
-Until one is set the form says it is not connected. It never fakes success. A honeypot field blocks basic spam bots.
+## Contact form
+Edit the top of `js/main.js`: set `OWNER_EMAIL` (FormSubmit; confirm its first activation email) or `FORM_ENDPOINT` (Formspree etc.). Until set, the form says it is not connected.
 
-## 3. Customise
-- Colours and fonts: variables at top of `css/style.css` (`:root`).
-- Logo: text in the `.logo` link in each page header/footer (replace with an `<img>` or SVG).
-- Text, horse names/status: edit the HTML directly; each horse is one `<article class="horse">`.
-- Placeholders to replace: `hello@example.com`, `https://www.example.com/` (canonical and Open Graph URLs), social links `#`, "Your Syndicate Name", favicon in `assets/icons/`.
+## Replace content
+- Photos: overwrite files in `assets/images/` (keep names) or edit `css/images.css`. Update the `aria-label` text in `index.html`.
+- Colours and fonts: `:root` in `css/style.css` and the Google Fonts link in `index.html`.
+- Logo, text, horse names, `hello@example.com`, social links: edit `index.html`.
+- Choose a demo: keep the pages you like and remove the other views and menu links.
 
-## 4. Deploy
-- **Netlify:** drag the project folder onto app.netlify.com/drop.
-- **GitHub Pages:** push to a repo, Settings > Pages > deploy from `main` / root.
-- **Traditional hosting:** upload all files via FTP to `public_html`.
+## Deploy
+Netlify: drag the folder onto app.netlify.com/drop. GitHub Pages: push and enable Pages. Traditional hosting: upload everything to `public_html`.
